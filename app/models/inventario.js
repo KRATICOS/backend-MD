@@ -20,7 +20,7 @@ const InventarioSchema = new mongoose.Schema({
 
 InventarioSchema.pre('save', async function (next) {
   if (!this.codigoQR) {
-    const qrData = `https://miapp.com/inventario/${this._id}`;
+    const qrData = `https://backend-md-production-475a.up.railway.app/${this._id}`;
     try {
       this.codigoQR = await QRCode.toDataURL(qrData);
     } catch (err) {
